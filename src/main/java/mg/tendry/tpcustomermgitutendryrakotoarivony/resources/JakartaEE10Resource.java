@@ -14,7 +14,7 @@ public class JakartaEE10Resource {
     @GET
     public Response ping(){
         return Response
-                .ok("ping Jakarta EE")
+                .ok("Tafita")
                 .build();
     }
 }
