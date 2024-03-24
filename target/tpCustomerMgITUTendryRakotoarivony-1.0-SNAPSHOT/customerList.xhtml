@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Liste des clients</title>
+    </h:head>
+    <h:body>
+	<h:form>
+       <p:dataTable value="#{customerBean.customers}" var="item" widgetVar="customersTable"
+                paginator="true" rows="10"
+		emptyMessage ="Aucun client avec ce critére"
+                rowsPerPageTemplate="2,4,8,10"
+                paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+      <p:column>
+         <f:facet name="header">
+             <h:outputText value="Id"/>
+         </f:facet>
+         <h:link outcome="customerDetails?idCustomer=#{item.customerId}" value="#{item.customerId}"/>
+      </p:column>
+
+     <p:column field="name" headerText="Name" filterMatchMode="exact"
+                sortBy="#{item.name}">
+                <f:facet name="filter">
+                    <p:selectOneMenu onchange="PF('customersTable').filter()" styleClass="ui-custom-filter">
+                        <f:selectItems value="#{customerBean.customers}" />
+                    </p:selectOneMenu>
+                </f:facet>
+            </p:column>
+           
+      <p:column>
+         <f:facet name="header">
+             <h:outputText value="Ville"/>
+         </f:facet>
+          <h:outputText value="#{item.city}"/>
+      </p:column>
+           
+      <p:column>
+         <f:facet name="header">
+             <h:outputText value="Code"/>
+         </f:facet>
+          <h:outputText value="#{item.discount.code} : #{item.discount.rate} %" />
+      </p:column>
+           
+      <p:column>
+         <f:facet name="header">
+             <h:outputText value="Zip"/>
+         </f:facet>
+          <h:outputText value="#{item.zip.zipCode}"/>
+      </p:column>
+           
+           <p:column sortBy="#{item.state}" filterBy="#{item.state}" >
+         <f:facet name="header">
+             <h:outputText value="Etat"/>
+         </f:facet>
+          <h:outputText value="#{item.state}"/>
+      </p:column>
+  </p:dataTable>
+</h:form>
+    </h:body>
+</html>

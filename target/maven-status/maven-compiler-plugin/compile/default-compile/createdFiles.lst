@@ -1,0 +1,9 @@
+mg\tendry\tpcustomermgitutendryrakotoarivony\entity\Discount.class
+mg\tendry\tpcustomermgitutendryrakotoarivony\entity\Customer.class
+mg\tendry\tpcustomermgitutendryrakotoarivony\service\CustomerManager.class
+mg\tendry\tpcustomermgitutendryrakotoarivony\entity\MicroMarket.class
+mg\tendry\tpcustomermgitutendryrakotoarivony\resources\JakartaEE10Resource.class
+mg\tendry\tpcustomermgitutendryrakotoarivony\JakartaRestConfiguration.class
+mg\tendry\tpcustomermgitutendryrakotoarivony\jsf\CustomerDetailsBean.class
+mg\tendry\tpcustomermgitutendryrakotoarivony\config\ConfigJSF.class
+mg\tendry\tpcustomermgitutendryrakotoarivony\jsf\CustomerBean.class
