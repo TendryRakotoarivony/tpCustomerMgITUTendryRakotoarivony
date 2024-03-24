@@ -9,7 +9,7 @@
     </h:head>
     <h:body>
 	<h:form>
-       <p:dataTable value="#{customerBean.customers}" var="item"
+       <p:dataTable value="#{customerBean.customers}" var="item" widgetVar="customersTable"
                 paginator="true" rows="10"
 		emptyMessage ="Aucun client avec ce critére"
                 rowsPerPageTemplate="2,4,8,10"
@@ -21,12 +21,14 @@
          <h:link outcome="customerDetails?idCustomer=#{item.customerId}" value="#{item.customerId}"/>
       </p:column>
 
-      <p:column sortBy="#{item.name}" filterBy="#{item.name}"  > 
-         <f:facet name="header">
-             <h:outputText value="Nom"/>
-         </f:facet>
-         <h:outputText value="#{item.name}"/>
-      </p:column>
+     <p:column field="name" headerText="Name" filterMatchMode="exact"
+                sortBy="#{item.name}">
+                <f:facet name="filter">
+                    <p:selectOneMenu onchange="PF('customersTable').filter()" styleClass="ui-custom-filter">
+                        <f:selectItems value="#{customerBean.customers}" />
+                    </p:selectOneMenu>
+                </f:facet>
+            </p:column>
            
       <p:column>
          <f:facet name="header">
