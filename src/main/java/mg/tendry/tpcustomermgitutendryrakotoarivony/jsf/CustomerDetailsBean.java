@@ -9,7 +9,7 @@ import mg.tendry.tpcustomermgitutendryrakotoarivony.entity.Customer;
 import mg.tendry.tpcustomermgitutendryrakotoarivony.service.CustomerManager;
 
 /**
- * Backing bean pour la page customerDetails.xhtml.
+ * Backing bean pour la page CustomerDetails.xhtml.
  * @author Tendry Arivony
  */
 @Named

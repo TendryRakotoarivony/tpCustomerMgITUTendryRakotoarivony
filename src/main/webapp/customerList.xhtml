@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
-      xmlns:f="jakarta.faces.core"
+      xmlns:f="jakarta.faces.core" 
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Liste des clients</title>
@@ -18,7 +18,7 @@
          <f:facet name="header">
              <h:outputText value="Id"/>
          </f:facet>
-         <h:link outcome="customerDetails?idCustomer=#{item.customerId}" value="#{item.customerId}"/>
+         <h:link outcome="CustomerDetails?idCustomer=#{item.customerId}" value="#{item.customerId}"/>
       </p:column>
 
      <p:column field="name" headerText="Name" filterMatchMode="exact"
