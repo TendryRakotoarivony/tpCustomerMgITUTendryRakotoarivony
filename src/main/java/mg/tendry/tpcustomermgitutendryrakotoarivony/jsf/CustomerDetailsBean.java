@@ -5,8 +5,11 @@ import java.io.Serializable;
 import jakarta.inject.Inject;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
+import java.util.List;
 import mg.tendry.tpcustomermgitutendryrakotoarivony.entity.Customer;
+import mg.tendry.tpcustomermgitutendryrakotoarivony.entity.Discount;
 import mg.tendry.tpcustomermgitutendryrakotoarivony.service.CustomerManager;
+import mg.tendry.tpcustomermgitutendryrakotoarivony.service.DiscountManager;
 
 /**
  * Backing bean pour la page CustomerDetails.xhtml.
@@ -20,6 +23,10 @@ public class CustomerDetailsBean implements Serializable {
 
   @Inject
   private CustomerManager customerManager;
+  
+  @Inject
+  private DiscountManager discountManager;
+  
 
   public int getIdCustomer() {
     return idCustomer;
@@ -52,5 +59,13 @@ public class CustomerDetailsBean implements Serializable {
 
   public void loadCustomer() {
     this.customer = customerManager.findById(idCustomer); 
+  }
+  
+  /**
+   * Retourne la liste de tous les Discount.
+     * @return 
+   */
+  public List<Discount> getDiscounts() {
+    return discountManager.getAllDiscounts();
   }
 }
